@@ -6,7 +6,7 @@ import CreatableSelect from "react-select/creatable";
 
 type Props = {
   onChange: (values?: string) => void;
-  onCreate?: (values?: string) => void;
+  onCreate?: (values: string) => void;
   options?: { label: string; value: string }[];
   value?: string | null | undefined;
   disabled?: boolean;
