@@ -35,7 +35,6 @@ export default function TransactionsPage() {
   const [importResults, setImportResults] = useState(INITIAL_IMPORT_RESULTS);
 
   function onUpload(results: typeof INITIAL_IMPORT_RESULTS) {
-    console.log({ results });
     setImportResults(results);
     setVariant(VARIANTS.IMPORT);
   }

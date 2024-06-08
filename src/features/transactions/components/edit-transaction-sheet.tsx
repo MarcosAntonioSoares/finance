@@ -16,7 +16,6 @@ import { useGetTransaction } from "@/features/transactions/api/use-get-transacti
 import { TransactionForm } from "@/features/transactions/components/transaction-form";
 import { useOpenTransaction } from "@/features/transactions/hooks/use-open-transaction";
 import { useConfirm } from "@/hooks/use-confirm";
-import { convertAmountFromMiliunits } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import { z } from "zod";
 
@@ -98,9 +97,7 @@ export function EditTransactionSheet() {
     ? {
         accountId: transactionQuery.data.accountId,
         categoryId: transactionQuery.data.categoryId,
-        amount: convertAmountFromMiliunits(
-          transactionQuery.data.amount
-        ).toString(),
+        amount: transactionQuery.data.amount.toString(),
         date: transactionQuery.data.date
           ? new Date(transactionQuery.data.date)
           : new Date(),
