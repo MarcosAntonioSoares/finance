@@ -5,6 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 import { cn, formatCurrency, formatPercentage } from "@/lib/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { IconType } from "react-icons";
@@ -88,8 +89,27 @@ export function DataCard({
             percentageChange < 0 && "text-rose-500"
           )}
         >
-          {formatPercentage(percentageChange)} from last period
+          {formatPercentage(percentageChange, { addPrefix: true })} from last
+          period
         </p>
+      </CardContent>
+    </Card>
+  );
+}
+
+export function DataCardLoading() {
+  return (
+    <Card className="border-none drop-shadow-sm h-[192px]">
+      <CardHeader className="flex flex-row items-center justify-between gap-x-4">
+        <div className="space-y-2">
+          <Skeleton className="h-6 w-24" />
+          <Skeleton className="h-4 w-40" />
+        </div>
+        <Skeleton className="size-12" />
+      </CardHeader>
+      <CardContent>
+        <Skeleton className="shrink-0 h-10 w-24 mb-2" />
+        <Skeleton className="shrink-0 h-4 w-40" />
       </CardContent>
     </Card>
   );
