@@ -17,6 +17,7 @@ export function useBulkDeleteCategories() {
     onSuccess: () => {
       toast.success("Categories deleted")
       queryClient.invalidateQueries({queryKey: ["categories"]})
+      queryClient.invalidateQueries({queryKey: ["summary"]})
     },
     onError: () => {
       toast.error("Failed to delete categories")
